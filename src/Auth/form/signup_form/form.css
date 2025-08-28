@@ -1,0 +1,70 @@
+/* Global Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 1px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 28rem;
+  height: 24rem;
+}
+
+form input[type="email"],
+form input[type="password"],
+form input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+}
+
+form input[type="email"]:focus,
+form input[type="password"]:focus,
+form input[type="text"]:focus {
+  border-color: #aaa;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+form button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Modal Form Styles */
+.modal-content form {
+  padding: 20px;
+  border: none;
+  box-shadow: none;
+}
+
+.modal-content input[type="email"],
+.modal-content input[type="password"],
+.modal-content input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  color: black;
+}
+
+.modal-content button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-content h2 {
+    font-weight: bold;
+    margin-bottom: 32px;
+    color: #07006C;
+    font-size: 36px;
+}

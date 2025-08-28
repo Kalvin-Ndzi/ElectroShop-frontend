@@ -1,0 +1,26 @@
+/* .product-card {
+  width: 240px;
+  height: 320px;
+  background-color: rgb(200, 200, 232);
+  color: black;
+  font-weight: bold;
+  margin-top: 2rem;
+  border-radius: 6px;
+}
+
+.product-card img {
+    border-radius: 8px;
+    height: 120px;
+    width: 100%;
+}
+
+.product-card button {
+    width: 100%;
+}
+
+.truncate-text {
+    width: 238px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+} */

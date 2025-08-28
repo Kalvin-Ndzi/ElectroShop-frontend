@@ -1,0 +1,29 @@
+/* .modal-overlay {
+    background-color: transparent;
+    color: white;
+    max-width: 40rem;
+    transition: opacity 0.3 ease-in-out;
+    position: absolute;
+    left: 20rem;
+}
+
+.modal-overlay.show {
+    opacity: 1;
+}
+.modal-overlay.hide {
+    opacity: 0;
+}
+
+.modal-overlay img {
+    height: 200px !important;
+    max-width: 300px !important;
+}
+
+.modal-overlay button {
+    width: 12rem !important; 
+}
+
+.actions {
+    display: flex;
+    gap: 4px;
+} */

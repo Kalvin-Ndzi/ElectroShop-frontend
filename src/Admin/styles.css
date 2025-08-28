@@ -1,0 +1,221 @@
+/* Container for admin products page */
+.admin-products-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Button to add a new product */
+.add-product-btn {
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  background-color: #2f86eb;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.add-product-btn:hover {
+  background-color: #245cb3;
+}
+
+/* Responsive product grid */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding-left: 2rem;
+  margin: 0 2rem;
+}
+
+@media (max-width: 1200px) {
+  .product-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .product-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* Each product card styling */
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 15px;
+  box-shadow: 0 0 5px #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+}
+
+/* Product image */
+.product-image {
+  max-width: 100%;
+  max-height: 150px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+/* Container for edit/delete buttons */
+.product-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+}
+
+/* Buttons styling */
+.product-actions button {
+  padding: 6px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  color: white;
+}
+
+/* Edit button - orange tones */
+.edit-btn {
+  background-color: #f0ad4e;
+}
+
+.edit-btn:hover {
+  background-color: #ec971f;
+}
+
+/* Delete button - red tones */
+.delete-btn {
+  background-color: #d9534f;
+}
+
+.delete-btn:hover {
+  background-color: #c9302c;
+}
+
+/* Modal overlay - dims background */
+.modal-backdrop,
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal content box */
+.modal-content {
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 450px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+/* Modal heading */
+.modal-content h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: #222;
+}
+
+/* Modal form labels */
+.modal-content form label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* Modal form inputs and textarea */
+.modal-content form input[type="text"],
+.modal-content form input[type="number"],
+.modal-content form input[type="file"],
+.modal-content form textarea {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1.5px solid #ccc;
+  font-size: 14px;
+  color: #222;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Modal buttons container */
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Modal action buttons */
+.modal-buttons button {
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+/* Save/submit button */
+.modal-buttons button[type="submit"] {
+  background-color: #5cb85c;
+  color: white;
+}
+
+.modal-buttons button[type="submit"]:hover {
+  background-color: #449d44;
+}
+
+/* Cancel button */
+.modal-buttons .cancel-btn {
+  background-color: #d9534f;
+  color: white;
+}
+
+.modal-buttons .cancel-btn:hover {
+  background-color: #b52e2a;
+}
+
+/* Success and error messages */
+.success-text {
+  color: green;
+  margin-top: -10px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.error-text {
+  color: #d9534f;
+  margin-top: -10px;
+  margin-bottom: 15px;
+  font-weight: 600;
+  white-space: pre-wrap;
+}
