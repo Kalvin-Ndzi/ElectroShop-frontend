@@ -60,7 +60,7 @@ const SignupForm = ({ handleCloseModal, role }) => {
   return (
     <div className="inset-0 flex items-center justify-center bg-black bg-opacity-90 z-50">
       <div className="bg-gray-900 text-blue-400 p-8 rounded-lg shadow-lg ">
-        <button onClick={handleCloseModal}>X</button>
+        <button onClick={handleCloseModal} className="rounded-full">X</button>
         <h2 className="text-2xl font-semibold mb-6 text-center">
           Signup as {role}
         </h2>

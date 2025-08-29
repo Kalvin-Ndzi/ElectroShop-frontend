@@ -57,10 +57,7 @@ const LoginForm = ({ handleCloseModal }) => {
   return (
     <div className="fixed top-0 left-0 w-full h-full bg-black/80 z-50 flex items-center justify-center p-4 md:p-8">
       <div className="bg-gray-900 p-4 md:p-8 rounded-lg shadow-lg w-full max-w-md mx-auto relative">
-        <button
-          onClick={handleCloseModal}
-          className="absolute top-2 right-2 text-white hover:text-gray-300"
-        >
+        <button onClick={handleCloseModal} className="rounded-full">
           X
         </button>
         <h2 className="text-2xl font-semibold mb-6 text-center">Login</h2>
