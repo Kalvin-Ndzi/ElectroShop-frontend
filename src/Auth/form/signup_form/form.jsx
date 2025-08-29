@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./form.css";
+// import "./form.css";
 import { useNavigate } from "react-router-dom";
 
 const apiUrl = "https://electroshop-backend.onrender.com/api";

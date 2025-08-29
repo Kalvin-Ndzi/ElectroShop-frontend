@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import SignupForm from "./form/signup_form/form";
 import LoginForm from "./form/login_form/login";
 
-import "../Auth/home.css";
+// import "../Auth/home.css";
 
 const AuthPage = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);

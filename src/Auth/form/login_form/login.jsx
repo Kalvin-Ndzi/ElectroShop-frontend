@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../signup_form/form.css";
+// import "../signup_form/form.css";
 const apiUrl = "https://electroshop-backend.onrender.com/api";
 const LOGIN_URL = `${apiUrl}/users/login/`;
 
