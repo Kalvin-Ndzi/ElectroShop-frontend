@@ -3,6 +3,7 @@ import TestimonialCard from "./testimonialCard";
 import Testimonial from "./addTestimonialForm";
 import NavBar from "../Account/nav";
 import CustomHeader from "../products/header";
+const apiUrl = "https://electroshop-backend.onrender.com/api";
 
 const Testimonials = ({handleLogout}) => {
   const [testimonials, setTestimonials] = useState([]);
@@ -18,7 +19,7 @@ const Testimonials = ({handleLogout}) => {
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const res = await fetch("http://localhost:8000/api/products/reviews/", {
+        const res = await fetch(`${apiUrl}/products/reviews/`, {
           headers: {
             "content-type": "application/json",
             Authorization: token,
@@ -37,7 +38,7 @@ const Testimonials = ({handleLogout}) => {
 
   const addTestimonial = async (testimonialData) => {
     try {
-      const res = await fetch("http://localhost:8000/api/products/reviews/", {
+      const res = await fetch(`${apiUrl}/products/reviews/`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
