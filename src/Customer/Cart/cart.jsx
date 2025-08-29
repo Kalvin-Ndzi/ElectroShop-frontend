@@ -17,7 +17,7 @@ const CartItems = ({ toggleCart }) => {
   useEffect(() => {
     const fetchCartItems = async () => {
       try {
-        const res = await fetch(`${apiUrl}/api/cart/cart/item/`, {
+        const res = await fetch(`${apiUrl}/cart/cart/item/`, {
           headers: {
             "content-type": "application/json",
             Authorization: token,
@@ -35,7 +35,7 @@ const CartItems = ({ toggleCart }) => {
 
   const deleteCartItem = async (itemId) => {
     try {
-      const res = await fetch(`${apiUrl}/api/cart/cart/item/`, {
+      const res = await fetch(`${apiUrl}/cart/cart/item/`, {
         method: "DELETE",
         headers: {
           "content-type": "application/json",

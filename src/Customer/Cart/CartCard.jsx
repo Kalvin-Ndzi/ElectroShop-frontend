@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+const apiImgUrl = "https://electroshop-backend.onrender.com/";
 
 const CartCard = ({ item, deleteCartItem, updateCartItem }) => {
   const [quantity, setQuantity] = useState(item.quantity);
@@ -7,7 +8,7 @@ const CartCard = ({ item, deleteCartItem, updateCartItem }) => {
     <div className="flex items-center justify-between py-4 border-b border-gray-200">
       <div className="flex items-center">
         <img
-          src={"http://localhost:8000" + item.product.image}
+          src={apiImgUrl + item.product.image}
           alt="Product_Image"
           className="h-16 w-16 object-cover mr-4"
         />
