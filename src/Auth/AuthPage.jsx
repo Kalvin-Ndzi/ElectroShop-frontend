@@ -75,11 +75,11 @@ const AuthPage = () => {
       </div>
 
       {(showLoginModal || showSignupModal) && (
-        <div className="modal-overlay fixed top-0 left-0 w-full h-full bg-black/80 z-50 flex items-center justify-center">
+        <div className="modal-overlay fixed top-0 left-0 w-full h-full bg-black/80 z-50 flex items-center justify-center p-4 md:p-8">
           <div
             role="dialog"
             aria-modal="true"
-            className="bg-gray-900 p-4 md:p-8 rounded-lg shadow-lg w-full max-w-md"
+            className="bg-gray-900 p-4 md:p-8 rounded-lg shadow-lg w-full max-w-md mx-auto"
           >
             {showLoginModal && (
               <LoginForm handleCloseModal={handleCloseModal} />

@@ -55,8 +55,8 @@ const LoginForm = ({ handleCloseModal }) => {
   };
 
   return (
-    <div className="fixed top-0 left-0 w-full h-full bg-black/80 z-50 flex items-center justify-center">
-      <div className="bg-gray-900 p-4 md:p-8 rounded-lg shadow-lg w-full max-w-md">
+    <div className="fixed top-0 left-0 w-full h-full bg-black/80 z-50 flex items-center justify-center p-4 md:p-8">
+      <div className="bg-gray-900 p-4 md:p-8 rounded-lg shadow-lg w-full max-w-md mx-auto">
         <button
           onClick={handleCloseModal}
           className="float-right text-white hover:text-gray-300"
@@ -71,7 +71,7 @@ const LoginForm = ({ handleCloseModal }) => {
             onChange={handleChange}
             name="email"
             required
-            className="w-full p-3 rounded bg-white placeholder-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-2 md:p-3 rounded bg-white placeholder-black focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <input
             type="password"
@@ -79,12 +79,12 @@ const LoginForm = ({ handleCloseModal }) => {
             onChange={handleChange}
             name="password"
             required
-            className="w-full p-3 rounded bg-white placeholder-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-2 md:p-3 rounded bg-white placeholder-black focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <button
             type="submit"
             disabled={loading}
-            className="w-full p-3 bg-blue-500 hover:bg-blue-700 text-white rounded disabled:opacity-50 disabled:cursor-not-allowed transition"
+            className="w-full p-2 md:p-3 bg-blue-500 hover:bg-blue-700 text-white rounded disabled:opacity-50 disabled:cursor-not-allowed transition"
           >
             {loading ? "Logging in..." : "Login"}
           </button>
@@ -97,7 +97,6 @@ const LoginForm = ({ handleCloseModal }) => {
       </div>
     </div>
   );
-
 };
 
 export default LoginForm;
