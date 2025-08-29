@@ -1,6 +1,7 @@
 const accessToken = localStorage.getItem("accessToken");
 const token = accessToken ? `Bearer ${accessToken}` : null;
-const CartUrl = "http://localhost:8000/api/cart/" 
+const apiUrl = "https://electroshop-backend.onrender.com/api";
+const CartUrl = `${apiUrl}/cart` 
 
 const cartApi = {
   async getCart() {
@@ -38,7 +39,7 @@ async addProductToCart(productID, quantity) {
 },
 
 async removeProductFromCart(itemId){
-    const res = await fetch(`http://localhost:8000/api/cart/${itemId}/`, {
+    const res = await fetch(`${CartUrl}/${itemId}/`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AdminNavBar from "./adminNa";
 import MessageCard from "./messageCard";
-
+const apiUrl = "https://electroshop-backend.onrender.com/api";
 const AdminMessagePage = () => {
   const [messages, setMessages] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -10,7 +10,7 @@ const AdminMessagePage = () => {
 
   const fetchMessages = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/products/message", {
+      const res = await fetch(`${apiUrl}/products/message`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

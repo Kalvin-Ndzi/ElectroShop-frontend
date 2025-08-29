@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import CartItems from "../Cart/cart";
 
+
 const CustomHeader = ({ searchTerm, setSearchTerm, onLogout }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
 

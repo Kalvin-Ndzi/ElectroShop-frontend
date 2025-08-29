@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import ProductModal from "./product_modal";
 
+const apiUrl = "https://electroshop-backend.onrender.com/api";
+const ImageUrl = "https://electroshop-backend.onrender.com";
+
 const ProductCard = ({
   product,
   handleAddToCart,
@@ -30,7 +33,7 @@ const ProductCard = ({
   return (
     <div className="w-64 h-96 bg-white text-black font-bold mt-8 rounded-md p-3 shadow-md flex flex-col justify-between">
       <img
-        src={"http://localhost:8000" + product.image}
+        src={"https://electroshop-backend.onrender.com" + product.image}
         alt="Product_Image"
         className="rounded-md h-28 w-full object-cover"
       />
@@ -53,7 +56,9 @@ const ProductCard = ({
             View Details
           </button>
           <button
-            onClick={() => {handleAddToCart(product)}}
+            onClick={() => {
+              handleAddToCart(product);
+            }}
             className="bg-[#03000F] hover:bg-indigo-700 text-white px-1 py-1 mt-2 rounded w-full transition"
           >
             Add To Cart

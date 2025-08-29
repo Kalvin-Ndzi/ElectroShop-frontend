@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import TestimonialCard from "../Customer/Testimonials/testimonialCard";
+const apiUrl = "https://electroshop-backend.onrender.com/api";
 
 const AdminTestimonialPage = () => {
   const [testimonials, setTestimonials] = useState([]);
@@ -9,7 +10,7 @@ const AdminTestimonialPage = () => {
 
   const fetchTestimonials = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/products/reviews/", {
+      const res = await fetch(`${apiUrl}/products/reviews/`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import "./adminModal.css"; 
+import "./adminModal.css";
+
+const apiUrl = "https://electroshop-backend.onrender.com/api";
 
 const AdminAddProduct = ({ onSuccess }) => {
   const [productData, setProductData] = useState({
@@ -48,7 +50,7 @@ const AdminAddProduct = ({ onSuccess }) => {
         return;
       }
 
-      const res = await fetch("http://127.0.0.1:8000/api/products/", {
+      const res = await fetch(`${apiUrl}/products/`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${accessToken}`,

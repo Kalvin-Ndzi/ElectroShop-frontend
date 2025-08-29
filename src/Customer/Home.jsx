@@ -5,6 +5,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+
 import NavBar from "./Account/nav";
 import Products from "./products/products";
 import Orders from "./Orders/orders";
@@ -19,7 +20,7 @@ const Home = () => {
     const refreshToken = localStorage.getItem("refreshToken");
 
     try {
-      await fetch("http://localhost:8000/api/logout/", {
+      await fetch(`${apiUrl}/logout/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ refresh: refreshToken }),

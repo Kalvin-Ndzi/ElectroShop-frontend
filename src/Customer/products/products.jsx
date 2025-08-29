@@ -4,6 +4,7 @@ import ProductCard from "../card/product_card";
 import NavBar from "../Account/nav";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+const apiUrl = "https://electroshop-backend.onrender.com/api";
 
 const Products = ({ userRole = "buyer" }) => {
   const [products, setProducts] = useState([]);
@@ -22,7 +23,7 @@ const Products = ({ userRole = "buyer" }) => {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        const res = await fetch("http://localhost:8000/api/products", {
+        const res = await fetch(`${apiUrl}/products`, {
           headers: {
             "content-type": "application/json",
             Authorization: token,
@@ -49,7 +50,7 @@ const Products = ({ userRole = "buyer" }) => {
   useEffect(() => {
     const fetchCartItems = async () => {
       try {
-        const res = await fetch("http://localhost:8000/api/cart/", {
+        const res = await fetch(`${apiUrl}/cart/`, {
           headers: {
             "content-type": "application/json",
             Authorization: token,
@@ -81,7 +82,7 @@ const Products = ({ userRole = "buyer" }) => {
   const handleAddToCart = (product) => {
     const postProduct = async () => {
       try {
-        const response = await fetch("http://localhost:8000/api/cart/", {
+        const response = await fetch(`${apiUrl}/cart/`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -112,7 +113,7 @@ const Products = ({ userRole = "buyer" }) => {
     const refreshToken = localStorage.getItem("refreshToken");
     console.log("i am running");
     try {
-      await fetch("http://localhost:8000/api/logout/", {
+      await fetch(`${apiUrl}/logout/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ refresh: refreshToken }),

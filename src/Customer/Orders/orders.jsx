@@ -3,6 +3,7 @@ import NavBar from "../Account/nav";
 import CustomHeader from "../products/header";
 import handleLogout from "./logout";
 import useSearch from "../products/useSearch";
+const apiUrl = "https://electroshop-backend.onrender.com/api"; 
 
 const Orders = () => {
   const [myOrders, setMyOrders] = useState([]);
@@ -17,7 +18,7 @@ const Orders = () => {
     setLoading(true);
     const fetchOrders = async () => {
       try {
-        const res = await fetch("http://localhost:8000/api/orders/myorders/", {
+        const res = await fetch(`${apiUrl}/orders/myorders/`, {
           headers: {
             "Content-Type": "application/json",
             Authorization: token,

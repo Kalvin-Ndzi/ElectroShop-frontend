@@ -4,6 +4,8 @@ import NavBar from "../Account/nav";
 const accessToken = localStorage.getItem("accessToken");
 const refreshToken = localStorage.getItem("refreshToken");
 const token = accessToken ? `Bearer ${accessToken}` : null;
+const apiUrl = "https://electroshop-backend.onrender.com/api";
+
 
 const Message = () => {
   const [message, setMessage] = useState("");
@@ -13,7 +15,7 @@ const Message = () => {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/api/products/message",
+        `${apiUrl}/products/message`,
         {
           method: "POST",
           headers: {

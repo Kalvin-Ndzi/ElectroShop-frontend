@@ -8,7 +8,7 @@ import Contact from "../Customer/Contact/contact";
 import CartItems from "../Customer/Cart/cart";
 import CustomHeader from "../Customer/products/header";
 import AdminMessagePage from "./messages";
-
+const apiUrl = "https://electroshop-backend.onrender.com/api";
 const AdminHome = () => {
   const userRole = localStorage.getItem("userRole");
   const [searchTerm, setSearchTerm] = useState("");
@@ -17,7 +17,7 @@ const AdminHome = () => {
     const refreshToken = localStorage.getItem("refreshToken");
 
     try {
-      await fetch("http://localhost:8000/api/logout/", {
+      await fetch(`${apiUrl}/users/logout/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ refresh: refreshToken }),

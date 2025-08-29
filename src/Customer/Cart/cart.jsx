@@ -5,6 +5,9 @@ import CustomHeader from "../products/header";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+const apiUrl = "https://electroshop-backend.onrender.com/api";
+const ImageUrl = "https://electroshop-backend.onrender.com";
+
 const CartItems = ({ toggleCart }) => {
   const [myCartItems, setMyCartItems] = useState([]);
   const [error, setError] = useState(null);
@@ -14,7 +17,7 @@ const CartItems = ({ toggleCart }) => {
   useEffect(() => {
     const fetchCartItems = async () => {
       try {
-        const res = await fetch("http://localhost:8000/api/cart/cart/item/", {
+        const res = await fetch(`${apiUrl}/api/cart/cart/item/`, {
           headers: {
             "content-type": "application/json",
             Authorization: token,
@@ -32,7 +35,7 @@ const CartItems = ({ toggleCart }) => {
 
   const deleteCartItem = async (itemId) => {
     try {
-      const res = await fetch("http://localhost:8000/api/cart/cart/item/", {
+      const res = await fetch(`${apiUrl}/api/cart/cart/item/`, {
         method: "DELETE",
         headers: {
           "content-type": "application/json",
@@ -54,11 +57,9 @@ const CartItems = ({ toggleCart }) => {
     }
   };
 
-const updateCartItem = async (item) => {
-  try {
-    const res = await fetch(
-      `http://localhost:8000/api/cart/cart/item/${item.id}/`,
-      {
+  const updateCartItem = async (item) => {
+    try {
+      const res = await fetch(`${apiUrl}/cart/cart/item/${item.id}/`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -68,52 +69,50 @@ const updateCartItem = async (item) => {
           product: item.product.id,
           quantity: item.quantity,
         }),
+      });
+
+      if (res.ok) {
+        const updatedItem = await res.json();
+
+        setMyCartItems((prev) =>
+          prev.map((i) => (i.id === updatedItem.id ? updatedItem : i))
+        );
+
+        console.log("Item updated successfully");
+      } else {
+        console.error("Error updating item:", res.status);
       }
-    );
-
-    if (res.ok) {
-      const updatedItem = await res.json();
-
-      setMyCartItems((prev) =>
-        prev.map((i) => (i.id === updatedItem.id ? updatedItem : i))
-      );
-
-      console.log("Item updated successfully");
-    } else {
-      console.error("Error updating item:", res.status);
+    } catch (error) {
+      console.error("Failed to update item:", error);
     }
-  } catch (error) {
-    console.error("Failed to update item:", error);
-  }
-};
-const placeOrder = async () => {
-  const accessToken = localStorage.getItem("accessToken");
-  const token = accessToken ? `Bearer ${accessToken}` : null;
+  };
+  const placeOrder = async () => {
+    const accessToken = localStorage.getItem("accessToken");
+    const token = accessToken ? `Bearer ${accessToken}` : null;
 
-  try {
-    const response = await fetch("http://localhost:8000/api/cart/from-cart/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: token,
-      },
-    });
+    try {
+      const response = await fetch(`${apiUrl}/cart/from-cart/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+      });
 
-    if (response.ok) {
-      //something here
-      setMyCartItems(myCartItems);
-      toast.success("Product Orderd Sucess.");
-      const data = await response.json();
-      console.log("Order placed successfully!", data);
-      // I will update state here to clear cart UI or show confirmation
-    } else {
-      console.error("Failed to place order:", response.status);
+      if (response.ok) {
+        //something here
+        setMyCartItems(myCartItems);
+        toast.success("Product Orderd Sucess.");
+        const data = await response.json();
+        console.log("Order placed successfully!", data);
+        // I will update state here to clear cart UI or show confirmation
+      } else {
+        console.error("Failed to place order:", response.status);
+      }
+    } catch (error) {
+      console.error("Error placing order:", error);
     }
-  } catch (error) {
-    console.error("Error placing order:", error);
-  }
-};
-
+  };
 
   return (
     <div>
@@ -131,7 +130,14 @@ const placeOrder = async () => {
           />
         ))}
         {myCartItems.length > 0 ? (
-          <button onClick={() => {placeOrder(); toggleCart()}}>Order Items</button>
+          <button
+            onClick={() => {
+              placeOrder();
+              toggleCart();
+            }}
+          >
+            Order Items
+          </button>
         ) : (
           <p className="text-black">You do not have any Items in Your Cart</p>
         )}

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./form.css";
 import { useNavigate } from "react-router-dom";
 
+const apiUrl = "https://electroshop-backend.onrender.com/api";
+
 const SignupForm = ({ handleCloseModal, role }) => {
   const [formData, setFormData] = useState({
     email: "",
@@ -29,7 +31,7 @@ const SignupForm = ({ handleCloseModal, role }) => {
 
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:8000/api/users/register/", {
+      const res = await fetch(`${apiUrl}/users/register/`, {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({ ...formData, role }),

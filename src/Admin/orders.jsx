@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import OrderCard from "../Customer/Orders/orderCard";
 import AdminNavBar from "./adminNa";
+const apiUrl = "https://electroshop-backend.onrender.com/api";
 
 const AdminOrderPage = () => {
   const [orders, setOrders] = useState([]);
@@ -10,7 +11,7 @@ const AdminOrderPage = () => {
 
   const fetchOrders = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/orders/all_orders/", {
+      const res = await fetch(`${apiUrl}/orders/all_orders/`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

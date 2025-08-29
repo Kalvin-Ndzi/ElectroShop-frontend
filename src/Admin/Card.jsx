@@ -1,10 +1,10 @@
 import React from "react";
-
+const apiImgUrl = "https://electroshop-backend.onrender.com";
 const ProductCard = ({ product, onEdit, onDelete }) => {
   return (
     <div className="product-card text-black w-80 ">
       <img
-        src={"http://localhost:8000" + product.image}
+        src={apiImgUrl + product.image}
         alt={product.title}
         className="product-image"
       />

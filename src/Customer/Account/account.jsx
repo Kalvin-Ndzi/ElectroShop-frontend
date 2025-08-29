@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 
+const apiUrl = "https://electroshop-backend.onrender.com/api";
+const userDetailsUrl = `${apiUrl}/user/details`;
+
 const UserProfile = () => {
   const [userDetails, setUserDetails] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -14,7 +17,7 @@ const UserProfile = () => {
   const handleGetDetails = async () => {
     try {
       const token = localStorage.getItem("accessToken");
-      const res = await fetch("http://localhost:8000/api/user/details", {
+      const res = await fetch(userDetailsUrl, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -1,4 +1,6 @@
 import React from "react";
+const apiUrl = "https://electroshop-backend.onrender.com/api";
+const ImageUrl = "https://electroshop-backend.onrender.com";
 
 const ProductModal = ({
   product,
@@ -19,7 +21,7 @@ const ProductModal = ({
         }`}
       >
         <img
-          src={"http://localhost:8000" + product.image}
+          src={ImageUrl + product.image}
           alt="Product_Image"
           className="w-full h-48 object-cover rounded mb-4"
         />

@@ -4,6 +4,7 @@ import ProductCard from "./Card";
 import EditProductModal from "./edit";
 import CustomHeader from "../Customer/products/header";
 // import ProductCard from "../Customer/card/product_card";
+const apiUrl = "https://electroshop-backend.onrender.com/api";
 
 const AdminProductPage = () => {
   const [products, setProducts] = useState([]);
@@ -18,7 +19,7 @@ const AdminProductPage = () => {
 
   const fetchProducts = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/products/", {
+      const res = await fetch(`${apiUrl}/products/`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -64,15 +65,12 @@ const AdminProductPage = () => {
     if (!window.confirm("Are you sure you want to delete this product?"))
       return;
     try {
-      const res = await fetch(
-        `http://127.0.0.1:8000/api/products/${productId}/`,
-        {
-          method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        }
-      );
+      const res = await fetch(`${apiUrl}/products/${productId}/`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
       if (res.ok) {
         setRefresh((prev) => !prev);
       } else {
@@ -99,7 +97,7 @@ const AdminProductPage = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:8000/api/logout/", {
+      const res = await fetch(`${apiUrl}/users/logout/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ refresh: refreshToken }),

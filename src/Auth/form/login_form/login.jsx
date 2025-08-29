@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../signup_form/form.css";
-
-const LOGIN_URL = "http://127.0.0.1:8000/api/users/login/";
+const apiUrl = "https://electroshop-backend.onrender.com/api";
+const LOGIN_URL = `${apiUrl}/users/login/`;
 
 const LoginForm = ({ handleCloseModal }) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
