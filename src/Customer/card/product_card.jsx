@@ -31,7 +31,7 @@ const ProductCard = ({
   const isProductInCart = MyCartItems?.some((item) => item.id === product.id);
 
   return (
-    <div className="w-64 h-96 bg-white text-black font-bold mt-8 rounded-md p-3 shadow-md flex flex-col justify-between">
+    <div className="w-full bg-white text-black font-bold rounded-md p-3 shadow-md flex flex-col justify-between">
       <img
         src={"https://electroshop-backend.onrender.com" + product.image}
         alt="Product_Image"
@@ -48,10 +48,10 @@ const ProductCard = ({
       </div>
 
       {userrole === "buyer" ? (
-        <div>
+        <div className="flex flex-col gap-2">
           <button
             onClick={handleViewDetails}
-            className="bg-[#03000F] hover:bg-indigo-700 text-white px-1 py-1 mt-2 rounded w-full transition"
+            className="bg-[#03000F] hover:bg-indigo-700 text-white px-1 py-1 rounded w-full transition"
           >
             View Details
           </button>
@@ -59,7 +59,7 @@ const ProductCard = ({
             onClick={() => {
               handleAddToCart(product);
             }}
-            className="bg-[#03000F] hover:bg-indigo-700 text-white px-1 py-1 mt-2 rounded w-full transition"
+            className="bg-[#03000F] hover:bg-indigo-700 text-white px-1 py-1 rounded w-full transition"
           >
             Add To Cart
           </button>

@@ -55,9 +55,14 @@ const LoginForm = ({ handleCloseModal }) => {
   };
 
   return (
-    <div className="inset-0 flex items-center justify-center bg-black/80 z-50">
-      <div className="border-2 bg-gray-900 text-blue-400 p-8 rounded-lg shadow-lg">
-        <button onClick={handleCloseModal}>X</button>
+    <div className="fixed top-0 left-0 w-full h-full bg-black/80 z-50 flex items-center justify-center">
+      <div className="bg-gray-900 p-4 md:p-8 rounded-lg shadow-lg w-full max-w-md">
+        <button
+          onClick={handleCloseModal}
+          className="float-right text-white hover:text-gray-300"
+        >
+          X
+        </button>
         <h2 className="text-2xl font-semibold mb-6 text-center">Login</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
@@ -66,7 +71,7 @@ const LoginForm = ({ handleCloseModal }) => {
             onChange={handleChange}
             name="email"
             required
-            className="w-2/4 p-3 rounded bg-white placeholder-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:text-white"
+            className="w-full p-3 rounded bg-white placeholder-black focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <input
             type="password"
@@ -74,12 +79,12 @@ const LoginForm = ({ handleCloseModal }) => {
             onChange={handleChange}
             name="password"
             required
-            className="w-36 p-3 rounded bg-white text-blue-300 placeholder-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-3 rounded bg-white placeholder-black focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <button
             type="submit"
             disabled={loading}
-            className="w-full p-3 bg-white hover:bg-blue-700 text-white rounded disabled:opacity-50 disabled:cursor-not-allowed transition"
+            className="w-full p-3 bg-blue-500 hover:bg-blue-700 text-white rounded disabled:opacity-50 disabled:cursor-not-allowed transition"
           >
             {loading ? "Logging in..." : "Login"}
           </button>

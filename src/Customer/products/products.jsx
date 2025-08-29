@@ -128,7 +128,7 @@ const Products = ({ userRole = "buyer" }) => {
   console.log(cart);
   console.log(refreshToken);
   return (
-    <div className="products-page ">
+    <div className="products-page p-4 md:p-8">
       {/* Custom header with search and logout */}
       <CustomHeader
         searchTerm={searchTerm}
@@ -136,11 +136,13 @@ const Products = ({ userRole = "buyer" }) => {
         onLogout={handleLogout}
       />
       <NavBar />
-      <h1>Available Products</h1>
+      <h1 className="text-2xl md:text-3xl font-bold mb-4">
+        Available Products
+      </h1>
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {error && <p className="text-red-500">{error}</p>}
 
-      <div className="mt-4 ml-16 left-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
         {filteredProducts.map((product) => (
           <ProductCard
             key={product.id}
