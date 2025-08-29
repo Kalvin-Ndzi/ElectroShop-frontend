@@ -3,7 +3,7 @@ import NavBar from "../Account/nav";
 import CustomHeader from "../products/header";
 import handleLogout from "./logout";
 import useSearch from "../products/useSearch";
-const apiUrl = "https://electroshop-backend.onrender.com/api"; 
+const apiUrl = "https://electroshop-backend.onrender.com/api";
 
 const Orders = () => {
   const [myOrders, setMyOrders] = useState([]);
@@ -57,38 +57,38 @@ const Orders = () => {
 
       {error && <p className="text-red-500">{error}</p>}
 
-      <div className="overflow-x-auto shadow flex flex-col ml-32 mr-32 align-middle">
-        <table className=" bg-white">
-          <thead className=" bg-[#03000F] text-white">
+      <div className="overflow-x-auto shadow-md sm:rounded-lg">
+        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-              <th className="px-4 py-3 text-left">Order ID</th>
-              <th className="px-4 py-3 text-left">Total</th>
-              <th className="px-4 py-3 text-left">Status</th>
-              <th className="px-4 py-3 text-left">Date Ordered</th>
+              <th scope="col" className="px-6 py-3">
+                Order ID
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Total
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Status
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Date Ordered
+              </th>
             </tr>
           </thead>
-          <tbody className="text-gray-700">
-            {myOrders.length === 0 ? (
-              <tr>
-                <td colSpan="4" className="px-4 py-4 text-center text-gray-500">
-                  No orders found.
+          <tbody>
+            {myOrders.map((order) => (
+              <tr
+                key={order.id}
+                className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+              >
+                <td className="px-6 py-4">{order.id}</td>
+                <td className="px-6 py-4">${order.total}</td>
+                <td className="px-6 py-4 capitalize">{order.status}</td>
+                <td className="px-6 py-4">
+                  {new Date(order.order_date).toLocaleDateString()}
                 </td>
               </tr>
-            ) : (
-              myOrders.map((order) => (
-                <tr
-                  key={order.id}
-                  className="border-t border-gray-200 hover:bg-gray-100 transition flex"
-                >
-                  <td className="px-4 py-3">{order.id}</td>
-                  <td className="px-4 py-3">${order.total}</td>
-                  <td className="px-4 py-3 capitalize">{order.status}</td>
-                  <td className="px-4 py-3">
-                    {new Date(order.order_date).toLocaleDateString()}
-                  </td>
-                </tr>
-              ))
-            )}
+            ))}
           </tbody>
         </table>
       </div>
